@@ -18,14 +18,12 @@ import java.util.Optional;
 public class CustomerResourceController {
 
     @Autowired
-    private CustomerRepository customerRepository;
-
     private ICustomerService customerService;
 
-    @GetMapping
-    public ResponseEntity<Customer> getCustomers(){
-        return ResponseEntity.status(HttpStatus.OK).body(customerService.getCustomers());
-    }
+//    @GetMapping
+//    public ResponseEntity<Customer> getCustomers(){
+//        return ResponseEntity.status(HttpStatus.OK).body(customerService.getCustomers());
+//    }
 
     @GetMapping("/{cpf}")
     public ResponseEntity<Customer> getCustomerByCpf(@PathVariable String cpf){
@@ -43,12 +41,12 @@ public class CustomerResourceController {
 
     }
 
-    @DeleteMapping("/{cpf}")
-    public ResponseEntity deleteCustomer(@PathVariable("cpf") String cpf){
-        return Optional.of(ResponseEntity.status(HttpStatus.CREATED))
-                .map(customerService.deleteCustomer(cpf))
-                .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND));
-    }
+//    @DeleteMapping("/{cpf}")
+//    public ResponseEntity deleteCustomer(@PathVariable("cpf") String cpf){
+//        return Optional.of(ResponseEntity.status(HttpStatus.CREATED))
+//                .map(customerService.deleteCustomer(cpf))
+//                .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND));
+//    }
 
     private ResponseEntity<Customer> buildSuccessResponse() {
 

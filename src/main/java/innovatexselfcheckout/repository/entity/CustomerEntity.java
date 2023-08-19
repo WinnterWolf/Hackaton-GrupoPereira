@@ -2,23 +2,26 @@ package innovatexselfcheckout.repository.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.math.BigInteger;
 import java.util.List;
 
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "CUSTOMER")
 public class CustomerEntity {
 
     @Id
     @Column(name = "CPF")
-    private BigInteger cpf;
+    private String cpf;
 
     @Column(name = "NAME")
     private String name;
 
-    @OneToMany(mappedBy = "CUSTOMER")
-    private List<ShoppingEntity> shoppings;
+//    @OneToMany(mappedBy = "SHOPPING")
+//    private List<ShoppingEntity> shopping;
 
 }

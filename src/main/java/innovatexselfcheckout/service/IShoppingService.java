@@ -1,5 +1,6 @@
 package innovatexselfcheckout.service;
 
+import innovatexselfcheckout.model.Pedido;
 import innovatexselfcheckout.model.Shopping;
 
 public interface IShoppingService {

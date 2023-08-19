@@ -1,4 +1,4 @@
 package innovatexselfcheckout.service;
 
-public class ShoppingService implements IShoppingService{
-}
+//public class ShoppingService implements IShoppingService{
+//}
