@@ -2,18 +2,10 @@ package innovatexselfcheckout.model.mapper;
 
 import innovatexselfcheckout.model.Product;
 import innovatexselfcheckout.repository.entity.ProductEntity;
+import org.mapstruct.Mapper;
 
-public class ProductMapper {
-
-    public static ProductEntity toProductEntity(Product product){
-        var productEntity = new ProductEntity();
-
-        productEntity.setBarCode(product.getBarCode());
-        productEntity.setName(product.getName());
-        productEntity.setCategory(product.getCategoria());
-        productEntity.setPrice(product.getPreco());
-        productEntity.setPeso(product.getPeso());
-        return  productEntity;
-    }
-
+@Mapper(componentModel = "spring")
+public interface ProductMapper {
+    ProductEntity toEntity(Product product);
+    Product toProduct(ProductEntity entity);
 }

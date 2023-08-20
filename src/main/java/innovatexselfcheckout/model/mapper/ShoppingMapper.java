@@ -1,17 +1,11 @@
 package innovatexselfcheckout.model.mapper;
 
 import innovatexselfcheckout.model.Shopping;
-import innovatexselfcheckout.repository.entity.ProductEntity;
 import innovatexselfcheckout.repository.entity.ShoppingEntity;
+import org.mapstruct.Mapper;
 
-import java.util.stream.Collectors;
-
-public class ShoppingMapper {
-    public static ShoppingEntity toShoppingEntity(Shopping shopping) {
-        ShoppingEntity shoppingEntity = new ShoppingEntity();
-
-        shoppingEntity.setCpf(shopping.getCpf());
-
-        return  shoppingEntity;
-    }
+@Mapper(componentModel = "spring")
+public interface ShoppingMapper {
+    ShoppingEntity toEntity(Shopping shopping);
+    Shopping toShopping(ShoppingEntity entity);
 }

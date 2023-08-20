@@ -12,9 +12,12 @@ public class ProductService implements IProductService{
     @Autowired
     ProductRepository productRepository;
 
+    @Autowired
+    ProductMapper mapper;
+
     @Override
     public boolean adicionarProduto(Product produto) {
-        productRepository.save(ProductMapper.toProductEntity(produto));
+        productRepository.save(mapper.toEntity(produto));
         return true;
     }
 }

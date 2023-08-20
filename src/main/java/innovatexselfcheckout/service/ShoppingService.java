@@ -11,8 +11,6 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.stream.Collectors;
-
 @Service
 public class ShoppingService implements IShoppingService{
 
@@ -23,6 +21,9 @@ public class ShoppingService implements IShoppingService{
 
     @Autowired
     ShoppingProductRepository shoppingProductRepository;
+
+    @Autowired
+    ShoppingMapper mapper;
 
 
     @Override
@@ -35,7 +36,7 @@ public class ShoppingService implements IShoppingService{
             return false;
         }
 
-        var shoppingEntity = shoppingRepository.save(ShoppingMapper.toShoppingEntity(shopping));
+        var shoppingEntity = shoppingRepository.save(mapper.toEntity(shopping));
 
         var produto = shopping.getProducts()
                 .stream()
