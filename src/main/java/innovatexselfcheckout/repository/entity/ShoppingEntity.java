@@ -3,6 +3,7 @@ package innovatexselfcheckout.repository.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigInteger;
 import java.time.Instant;
@@ -26,10 +27,12 @@ public class ShoppingEntity {
     @CreationTimestamp
     private Instant datCreation;
 
+    @Column
+    @UpdateTimestamp
+    private Instant datUpdate;
+
     @ManyToOne
     @JoinColumn(name = "cpf", insertable=false, updatable=false)
     private CustomerEntity customer;
-
-    private String cpf;
 
 }

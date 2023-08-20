@@ -16,7 +16,10 @@ public class ShoppingProductEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private BigInteger id;
 
+    @Column
     private BigInteger productId;
+
+    @Column
     private BigInteger shoppingId;
 
     @ManyToOne
