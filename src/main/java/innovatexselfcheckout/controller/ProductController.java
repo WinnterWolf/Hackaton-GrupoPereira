@@ -20,7 +20,6 @@ public class ProductController {
     IProductService productService;
 
     @Operation(summary = "Obtem todos os produtos cadastrados")
-
     @GetMapping(path = "/obterTodos")
     public ResponseEntity<List<Product>> obterTodosProdutos(){
         var service = productService.obterTodos();
@@ -32,7 +31,6 @@ public class ProductController {
 
 
     @Operation(summary = "Adiciona Produtoq")
-
     @PostMapping
     public ResponseEntity adicionarProduto(@RequestBody Product product) {
         var service = productService.adicionarProduto(product);
