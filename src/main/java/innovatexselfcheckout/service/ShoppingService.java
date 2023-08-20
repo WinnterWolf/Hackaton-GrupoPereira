@@ -11,8 +11,6 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.math.BigInteger;
-
 @Service
 public class ShoppingService implements IShoppingService{
 
@@ -32,6 +30,9 @@ public class ShoppingService implements IShoppingService{
     @Transactional
     public boolean adicionarCompra(Shopping shopping) {
         if(customerRepository.findById(shopping.cpf).isEmpty()){
+
+
+
             return false;
         }
 
@@ -52,14 +53,5 @@ public class ShoppingService implements IShoppingService{
     @Override
     public boolean validarCompra(Pedido pedido) {
         return false;
-    }
-
-    @Override
-    public Shopping obterCompraPorId(BigInteger id) {
-        var shoppingEntity = shoppingRepository.findById(id);
-        if(shoppingEntity.isEmpty()){
-            return null;
-        }
-        return mapper.toShopping(shoppingEntity);
     }
 }

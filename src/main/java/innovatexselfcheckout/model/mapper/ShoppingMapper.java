@@ -5,8 +5,6 @@ import innovatexselfcheckout.repository.entity.ShoppingEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-import java.util.Optional;
-
 @Mapper(componentModel = "spring")
 public interface ShoppingMapper {
 
@@ -15,6 +13,4 @@ public interface ShoppingMapper {
     ShoppingEntity toEntity(Shopping shopping);
 
     Shopping toShopping(ShoppingEntity entity);
-
-    Shopping toShopping(Optional<ShoppingEntity> entity);
 }
