@@ -17,7 +17,7 @@ public class BaseApiAdvice extends ResponseEntityExceptionHandler {
     public ResponseEntity<Object> handleCustomerNotFoundException(final RuntimeException ex, final WebRequest request){
         return super.handleExceptionInternal(
                 ex,
-                ex.getMessage(),
+                new ResponseBuilder(ex.getMessage()),
                 HttpHeaders.EMPTY,
                 HttpStatus.NOT_FOUND,
                 request
@@ -28,7 +28,7 @@ public class BaseApiAdvice extends ResponseEntityExceptionHandler {
     public ResponseEntity<Object> handleInvalidCpfException(final RuntimeException ex, final WebRequest request){
         return super.handleExceptionInternal(
                 ex,
-                ex.getMessage(),
+                new ResponseBuilder(ex.getMessage()),
                 HttpHeaders.EMPTY,
                 HttpStatus.BAD_REQUEST,
                 request
