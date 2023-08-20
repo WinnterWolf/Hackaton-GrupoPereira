@@ -11,5 +11,7 @@ public interface ProductMapper {
     @Mapping(target = "category", source = "categoria")
     ProductEntity toEntity(Product product);
 
+    @Mapping(target = "preco", source = "price")
+    @Mapping(target = "categoria", source = "category")
     Product toProduct(ProductEntity entity);
 }

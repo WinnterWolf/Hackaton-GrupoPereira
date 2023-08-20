@@ -32,7 +32,7 @@ public class ProductController {
     }
 
 
-    @Operation(summary = "Adiciona Produto")
+    @Operation(summary = "Adiciona Produtoq")
 
     @PostMapping
     public ResponseEntity adicionarProduto(@RequestBody Product product) {
