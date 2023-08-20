@@ -7,11 +7,11 @@ import innovatexselfcheckout.repository.entity.ShoppingEntity;
 import java.util.stream.Collectors;
 
 public class ShoppingMapper {
-    public static ShoppingEntity toShoppingEntity(Shopping shopping){
+    public static ShoppingEntity toShoppingEntity(Shopping shopping) {
         ShoppingEntity shoppingEntity = new ShoppingEntity();
 
+        shoppingEntity.setCpf(shopping.getCpf());
 
-
-        shoppingEntity.setProducts(shopping.products.stream().map(it -> ProductMapper.toProductEntity(it)).collect(Collectors.toList()));
-}
+        return  shoppingEntity;
+    }
 }

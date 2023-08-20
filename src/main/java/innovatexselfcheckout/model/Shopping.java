@@ -6,7 +6,7 @@ import java.util.List;
 
 @Data
 public class Shopping {
-    public
+    public List<Product> products;
 
     public Double price;
 

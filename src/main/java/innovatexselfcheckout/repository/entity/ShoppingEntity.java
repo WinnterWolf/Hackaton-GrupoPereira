@@ -20,7 +20,7 @@ public class ShoppingEntity {
     @OneToMany(mappedBy = "shoppingId")
     private List<ShoppingProductEntity> products;
 
-    private Boolean validated;
+    private Boolean validated = false;
 
     @Column(nullable = false, updatable = false)
     @CreationTimestamp
@@ -29,5 +29,7 @@ public class ShoppingEntity {
     @ManyToOne
     @JoinColumn(name = "cpf")
     private CustomerEntity customer;
+
+    private String cpf;
 
 }
