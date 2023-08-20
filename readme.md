@@ -1,10 +1,28 @@
-para executar o projeto precisa do maven instalado e a versao do java 17.
+# innovatex-self-checkout
+Aplicação API para autorização de transações do pay no contact do Grupo Pereira
 
-Comandos:
 
-Para instalar as dependencias do projeto 
-mvn clean install
+## Requisitos para a aplicação:
+- Java 17
+- Maven
 
-Para acessar a documentação da api
-http://localhost:8080/swagger-ui/index.html#/
+## Integrações
+- Banco de dados H2
 
+## Desenvolvimento
+### Tecnologias
+- Spring
+- Spring Data / JPA / H2
+
+### Arquitetura da aplicação
+A aplicação está estrutura em uma arquitetura Spring MVC
+
+
+#### Compilando e gerando artefato JAR
+```shell
+# Compilando projeto
+mvn install
+
+# Gerando artefato JAR
+mvn package
+```
