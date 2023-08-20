@@ -1,18 +1,17 @@
 package innovatexselfcheckout.service;
 
 import innovatexselfcheckout.exceptions.CustomerNotFoundException;
+import innovatexselfcheckout.exceptions.InvalidCpfException;
 import innovatexselfcheckout.model.Customer;
 import innovatexselfcheckout.model.mapper.CustomerMapper;
 import innovatexselfcheckout.repository.CustomerRepository;
 import innovatexselfcheckout.repository.entity.CustomerEntity;
+import innovatexselfcheckout.utils.ValidateCpf;
 import jakarta.persistence.EntityNotFoundException;
-import net.bytebuddy.implementation.bytecode.Throw;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.math.BigInteger;
 import java.util.List;
-import java.util.Objects;
 
 @Service
 public class CustomerService  implements ICustomerService{
@@ -34,8 +33,12 @@ public class CustomerService  implements ICustomerService{
 
     @Override
     public Boolean addCustomer(Customer customer) {
-        customerRepository.save(mapper.customerToEntity(customer));
-        return true;
+        if(validateCpf(customer.getCpf())){
+            customerRepository.save(mapper.customerToEntity(customer));
+            return true;
+        }
+        throw new InvalidCpfException();
+
     }
 
     @Override
@@ -61,8 +64,7 @@ public class CustomerService  implements ICustomerService{
         }
     }
 
-    private BigInteger validateCpf(String cpf){
-
-        return null;
+    private Boolean validateCpf(String cpf){
+        return ValidateCpf.isCPF(cpf);
     }
 }
