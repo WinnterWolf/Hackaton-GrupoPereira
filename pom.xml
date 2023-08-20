@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>grupo.pereira.hackaton</groupId>
-	<artifactId>demo</artifactId>
+	<artifactId>innovatex</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>innovatex-self-checkout</name>
-	<description>Demo project for Spring Boot</description>
+	<description>innovatex project for self checkout system</description>
 	<properties>
 		<java.version>17</java.version>
 		<org.mapstruct.version>1.5.5.Final</org.mapstruct.version>
