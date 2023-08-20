@@ -1,9 +1,12 @@
 package innovatexselfcheckout.service;
 
+import innovatexselfcheckout.exceptions.CustomerNotFoundException;
 import innovatexselfcheckout.model.Customer;
 import innovatexselfcheckout.model.mapper.CustomerMapper;
 import innovatexselfcheckout.repository.CustomerRepository;
 import innovatexselfcheckout.repository.entity.CustomerEntity;
+import jakarta.persistence.EntityNotFoundException;
+import net.bytebuddy.implementation.bytecode.Throw;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,7 +27,9 @@ public class CustomerService  implements ICustomerService{
     @Override
     public List<Customer> obterTodosCostumer() {
         final List<CustomerEntity> customers = customerRepository.findAll();
+
         return customers.stream().map(customer -> mapper.entityToCustomer(customer)).toList();
+
     }
 
     @Override
@@ -36,20 +41,24 @@ public class CustomerService  implements ICustomerService{
     @Override
     public Boolean deleteCustomer(String cpf) {
 
-        final CustomerEntity customer = customerRepository.getById(cpf);
-        if (Objects.isNull(customer)){
-            return false;
+        try {
+            final CustomerEntity customer = customerRepository.getById(cpf);
+            customerRepository.delete(customer);
+            return true;
+        } catch (EntityNotFoundException ex){
+            throw new CustomerNotFoundException();
         }
-        customerRepository.delete(customer);
-        return true;
 
     }
 
     @Override
     public Customer getCustomerByCpf(String cpf){
 
-        final Customer customer = mapper.entityToCustomer(customerRepository.getById(cpf));
-        return customer;
+        try {
+            return mapper.entityToCustomer(customerRepository.getById(cpf));
+        } catch (EntityNotFoundException ex){
+            throw new CustomerNotFoundException();
+        }
     }
 
     private BigInteger validateCpf(String cpf){
