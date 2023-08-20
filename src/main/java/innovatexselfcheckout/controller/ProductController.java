@@ -21,8 +21,10 @@ public class ProductController {
 
     @PostMapping
     public ResponseEntity adicionarProduto(@RequestBody Product product) {
-        productService.adicionarProduto(product);
-
+        var service = productService.adicionarProduto(product);
+        if (!service){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
 
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }

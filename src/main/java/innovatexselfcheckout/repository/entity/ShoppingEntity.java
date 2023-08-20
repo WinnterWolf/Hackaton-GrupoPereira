@@ -17,7 +17,7 @@ public class ShoppingEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private BigInteger id;
 
-    @OneToMany(mappedBy = "shoppingId")
+    @OneToMany(mappedBy = "shopping")
     private List<ShoppingProductEntity> products;
 
     private Boolean validated = false;
@@ -27,7 +27,7 @@ public class ShoppingEntity {
     private Instant datCreation;
 
     @ManyToOne
-    @JoinColumn(name = "cpf")
+    @JoinColumn(name = "cpf", insertable=false, updatable=false)
     private CustomerEntity customer;
 
     private String cpf;

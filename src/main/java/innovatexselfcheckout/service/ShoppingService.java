@@ -7,6 +7,7 @@ import innovatexselfcheckout.repository.CustomerRepository;
 import innovatexselfcheckout.repository.ShoppingProductRepository;
 import innovatexselfcheckout.repository.entity.ShoppingProductEntity;
 import innovatexselfcheckout.repository.entity.ShoppingRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,8 +26,12 @@ public class ShoppingService implements IShoppingService{
 
 
     @Override
+    @Transactional
     public boolean adicionarCompra(Shopping shopping) {
         if(customerRepository.findById(shopping.cpf).isEmpty()){
+
+
+
             return false;
         }
 

@@ -8,6 +8,7 @@ public class ProductMapper {
     public static ProductEntity toProductEntity(Product product){
         var productEntity = new ProductEntity();
 
+        productEntity.setBarCode(product.getBarCode());
         productEntity.setName(product.getName());
         productEntity.setCategory(product.getCategoria());
         productEntity.setPrice(product.getPreco());
