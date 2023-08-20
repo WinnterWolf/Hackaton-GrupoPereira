@@ -17,7 +17,8 @@ public class ShoppingEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private BigInteger id;
 
-//    private List<ProductEntity> products;
+    @OneToMany(mappedBy = "shoppingId")
+    private List<ShoppingProductEntity> products;
 
     private Boolean validated;
 
@@ -25,8 +26,8 @@ public class ShoppingEntity {
     @CreationTimestamp
     private Instant datCreation;
 
-//    @ManyToOne
-//    @JoinColumn(name = "CPF")
-//    private CustomerEntity customer;
+    @ManyToOne
+    @JoinColumn(name = "cpf")
+    private CustomerEntity customer;
 
 }

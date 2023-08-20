@@ -15,7 +15,6 @@ public class CustomerService  implements ICustomerService{
     @Autowired
     private CustomerRepository customerRepository;
 
-    private CustomerMapper mapper;
 
     @Override
     public List<Customer> obterTodosCostumer() {
@@ -25,7 +24,7 @@ public class CustomerService  implements ICustomerService{
 
     @Override
     public Boolean addCustomer(Customer customer) {
-        customerRepository.save(mapper.toCustomerEntity(customer));
+        customerRepository.save(CustomerMapper.toCustomerEntity(customer));
         return true;
     }
 
@@ -37,7 +36,7 @@ public class CustomerService  implements ICustomerService{
     @Override
     public Customer getCustomerByCpf(String cpf){
 
-        final Customer customer = mapper.toCustomer(customerRepository.getById(cpf));
+        final Customer customer = CustomerMapper.toCustomer(customerRepository.getById(cpf));
         return customer;
     }
 

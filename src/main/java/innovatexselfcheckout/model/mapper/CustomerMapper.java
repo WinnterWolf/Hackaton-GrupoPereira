@@ -6,7 +6,7 @@ import innovatexselfcheckout.repository.entity.CustomerEntity;
 public class CustomerMapper {
 
 
-    public Customer toCustomer(CustomerEntity customerEntity) {
+    public static Customer toCustomer(CustomerEntity customerEntity) {
         if ( customerEntity == null ) {
             return null;
         }
@@ -20,7 +20,7 @@ public class CustomerMapper {
     }
 
 
-    public CustomerEntity toCustomerEntity(Customer customer) {
+    public static CustomerEntity toCustomerEntity(Customer customer) {
         if ( customer == null ) {
             return null;
         }

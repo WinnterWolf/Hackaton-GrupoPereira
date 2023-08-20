@@ -21,7 +21,7 @@ public class CustomerEntity {
     @Column(name = "NAME")
     private String name;
 
-//    @OneToMany(mappedBy = "SHOPPING")
-//    private List<ShoppingEntity> shopping;
+    @OneToMany(mappedBy = "customer")
+    private List<ShoppingEntity> shopping;
 
 }
