@@ -1,6 +1,5 @@
 package innovatexselfcheckout.repository;
 
-import innovatexselfcheckout.repository.entity.CustomerEntity;
 import innovatexselfcheckout.repository.entity.ShoppingProductEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 

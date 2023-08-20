@@ -6,7 +6,7 @@ import innovatexselfcheckout.model.mapper.ShoppingMapper;
 import innovatexselfcheckout.repository.CustomerRepository;
 import innovatexselfcheckout.repository.ShoppingProductRepository;
 import innovatexselfcheckout.repository.entity.ShoppingProductEntity;
-import innovatexselfcheckout.repository.entity.ShoppingRepository;
+import innovatexselfcheckout.repository.ShoppingRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

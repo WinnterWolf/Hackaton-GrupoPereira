@@ -20,7 +20,7 @@ public class CustomerController {
 
     @GetMapping
     public ResponseEntity<List<Customer>> getCustomers(){
-        return ResponseEntity.status(HttpStatus.OK).body(customerService.obterTodosCostumer());
+        return ResponseEntity.status(HttpStatus.OK).body(customerService.getAllCustomers());
     }
 
     @GetMapping("/{cpf}")

@@ -1,7 +1,6 @@
 package innovatexselfcheckout.controller;
 
 import innovatexselfcheckout.model.Product;
-import innovatexselfcheckout.model.Shopping;
 import innovatexselfcheckout.service.IProductService;
 import io.swagger.annotations.Api;
 import io.swagger.v3.oas.annotations.Operation;

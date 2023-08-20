@@ -24,7 +24,7 @@ public class CustomerService  implements ICustomerService{
 
 
     @Override
-    public List<Customer> obterTodosCostumer() {
+    public List<Customer> getAllCustomers() {
         final List<CustomerEntity> customers = customerRepository.findAll();
 
         return customers.stream().map(customer -> mapper.entityToCustomer(customer)).toList();

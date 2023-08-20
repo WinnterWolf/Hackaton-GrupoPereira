@@ -1,6 +1,5 @@
 package innovatexselfcheckout.controller;
 
-import innovatexselfcheckout.model.Pedido;
 import innovatexselfcheckout.model.Shopping;
 import innovatexselfcheckout.service.ShoppingService;
 import io.swagger.annotations.Api;
@@ -10,7 +9,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.math.BigDecimal;
 import java.math.BigInteger;
 
 @Api(value = "ShoppingController")
