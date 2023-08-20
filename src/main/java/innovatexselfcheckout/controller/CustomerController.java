@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Api(value = "CustomerController")
 @RestController
 @RequestMapping(path = "v1/customers")
@@ -16,10 +18,10 @@ public class CustomerController {
     @Autowired
     private ICustomerService customerService;
 
-//    @GetMapping
-//    public ResponseEntity<Customer> getCustomers(){
-//        return ResponseEntity.status(HttpStatus.OK).body(customerService.getCustomers());
-//    }
+    @GetMapping
+    public ResponseEntity<List<Customer>> getCustomers(){
+        return ResponseEntity.status(HttpStatus.OK).body(customerService.obterTodosCostumer());
+    }
 
     @GetMapping("/{cpf}")
     public ResponseEntity<Customer> getCustomerByCpf(@PathVariable String cpf){
@@ -37,12 +39,14 @@ public class CustomerController {
 
     }
 
-//    @DeleteMapping("/{cpf}")
-//    public ResponseEntity deleteCustomer(@PathVariable("cpf") String cpf){
-//        return Optional.of(ResponseEntity.status(HttpStatus.CREATED))
-//                .map(customerService.deleteCustomer(cpf))
-//                .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND));
-//    }
+    @DeleteMapping("/{cpf}")
+    public ResponseEntity deleteCustomer(@PathVariable("cpf") String cpf){
+        final Boolean customerResult = customerService.deleteCustomer(cpf);
+        if(customerResult){
+            return this.buildSuccessResponse();
+        }
+        return this.buildFailureResponse();
+    }
 
     private ResponseEntity<Customer> buildSuccessResponse() {
 
